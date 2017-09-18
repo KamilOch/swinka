@@ -19,6 +19,7 @@ public class HardcodedPiggyRepository implements PiggyRepository {
         piggyBankList.add(new PiggyBank("Rehabilitacja",  "12.10", new Money(1200),new Money(0),"","",""));
         piggyBankList.add(new PiggyBank("Samochód", "09.12", new Money(50000),new Money(0),"","",""));
         piggyBankList.add(new PiggyBank("Wózek inwalidzki", "22.10", new Money(15000),new Money(0),"jakis tam opis","","" ));
+        piggyBankList.add(new PiggyBank("Najebka", "18.09", new Money( 1500),new Money( 100),"Zbieramy na wina i piwa","wina maja być czerwone wytrawne a piwa zimne","" ));
         for (PiggyBank piggyBank : piggyBankList) {
             piggyBank.setId(++nextId);
         }
