@@ -15,11 +15,11 @@ public class HardcodedPiggyRepository implements PiggyRepository {
     private List<PiggyBank> piggyBankList = new ArrayList<>();
 
     public HardcodedPiggyRepository() {
-        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny",  "2016-12-03", new Money(30000), new Money(0),"","","",""));
-        piggyBankList.add(new PiggyBank("Rehabilitacja",  "12.10", new Money(1200),new Money(0),"","","",""));
-        piggyBankList.add(new PiggyBank("Samochód", "09.12", new Money(50000),new Money(0),"","","",""));
-        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "22.10", new Money(15000),new Money(0),"jakis tam opis","","" ,""));
-        piggyBankList.add(new PiggyBank("Najebka", "18.09", new Money( 1500),new Money( 100),"Zbieramy na wina i piwa","wina maja być czerwone wytrawne a piwa zimne","","" ));
+        piggyBankList.add(new PiggyBank("Wyjazd wakacyjny",  "2016-12-03", new Money(30000), new Money(0),"","","","przekręt"));
+        piggyBankList.add(new PiggyBank("Rehabilitacja",  "12.10", new Money(1200),new Money(0),"","","","charytatywna"));
+        piggyBankList.add(new PiggyBank("Samochód", "09.12", new Money(50000),new Money(0),"","","","pranie pieniędzy"));
+        piggyBankList.add(new PiggyBank("Wózek inwalidzki", "22.10", new Money(15000),new Money(0),"jakis tam opis","","" ,"przekręt"));
+        piggyBankList.add(new PiggyBank("Najebka", "18.09", new Money( 1500),new Money( 100),"Zbieramy na wina i piwa","wina maja być czerwone wytrawne a piwa zimne","","przekręt" ));
         for (PiggyBank piggyBank : piggyBankList) {
             piggyBank.setId(++nextId);
         }
