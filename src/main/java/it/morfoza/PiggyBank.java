@@ -10,8 +10,9 @@ public class PiggyBank {
     private String description;
     private String long_description;
     private String url_image;
+    private String type_piggybank;
 
-    public PiggyBank(String name, String date, Money target, Money current, String description, String long_description,String url_image) {
+    public PiggyBank(String name, String date, Money target, Money current, String description, String long_description,String url_image, String type_piggybank) {
         this.name = name;
         this.date = date;
         this.target = target;
@@ -19,6 +20,7 @@ public class PiggyBank {
         this.description=description;
         this.long_description=long_description;
         this.url_image=url_image;
+        this.type_piggybank=type_piggybank;
     }
 
     public String getName() {
@@ -85,11 +87,12 @@ public class PiggyBank {
 
     public String getType_piggybank() {
         // Tu pobierz wartosc pola
-        return "tralalala";
+        return type_piggybank;
     }
 
     public void setType_piggybank(String type_piggybank) {
         // Tu ustaw pole
+        this.type_piggybank = type_piggybank;
     }
 }
 

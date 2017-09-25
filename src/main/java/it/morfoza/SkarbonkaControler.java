@@ -82,7 +82,7 @@ public class SkarbonkaControler {
             String error = encodeUrl(url);
             return "redirect:/?error= " + error;
         }
-        PiggyBank pig = new PiggyBank(name,  LocalDateTime.now().toString(), new Money(target), new Money(0),description,long_description,url_image);
+        PiggyBank pig = new PiggyBank(name,  LocalDateTime.now().toString(), new Money(target), new Money(0),description,long_description,url_image,type_piggybank);
 
         piggyService.add(pig);
 
@@ -97,7 +97,8 @@ public class SkarbonkaControler {
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,
             @RequestParam(value = "long_description",required = true)String long_description,
-            @RequestParam(value = "url_image",required = false)String url_image
+            @RequestParam(value = "url_image",required = false)String url_image,
+            @RequestParam(value = "type_piggybank",required = true) String type_piggybank
     ) {
 
         if (isStringEmpty(name)) {
@@ -110,6 +111,7 @@ public class SkarbonkaControler {
         piggyBank.setLong_description(long_description);
         piggyBank.setTarget(new Money(target));
         piggyBank.setUrl_image(url_image);
+        piggyBank.setType_piggybank(type_piggybank);
 
         piggyService.update(piggyBank);
 

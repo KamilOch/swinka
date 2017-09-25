@@ -31,7 +31,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
             String description = rs.getString("short_description");
             String long_description=rs.getString("long_description");
             String url_image=rs.getString("picture_url");
-            PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description, url_image);
+            String type_piggybank = rs.getString("type_piggybank");
+            PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description, url_image, type_piggybank);
             piggyBank.setId(id);
             return piggyBank;        }
     };
@@ -48,13 +49,14 @@ public class DatabasePiggyRepository implements PiggyRepository {
 
     @Override
     public long add(PiggyBank piggyBank) {
-        Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description, picture_url) VALUES(?,?,?,?,?,?) RETURNING id", Long.class,
+        Long id = jdbcTemplate.queryForObject ("INSERT INTO piggybanks(name, target, current, short_description, long_description, picture_url, type_piggybank) VALUES(?,?,?,?,?,?) RETURNING id", Long.class,
                 piggyBank.getName(),
                 piggyBank.getTarget().getBigDecimalValue(),
                 piggyBank.getCurrent().getBigDecimalValue(),
                 piggyBank.getDescription(),
                 piggyBank.getLong_description(),
-                piggyBank.getUrl_image()
+                piggyBank.getUrl_image(),
+                piggyBank.getType_piggybank()
                 );
         return id;
     }
