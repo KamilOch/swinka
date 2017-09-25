@@ -11,7 +11,6 @@ public class PiggyBank {
     private String long_description;
     private String url_image;
 
-
     public PiggyBank(String name, String date, Money target, Money current, String description, String long_description,String url_image) {
         this.name = name;
         this.date = date;
@@ -82,6 +81,15 @@ public class PiggyBank {
 
     public void setUrl_image(String url_image) {
         this.url_image = url_image;
+    }
+
+    public String getType_piggybank() {
+        // Tu pobierz wartosc pola
+        return "tralalala";
+    }
+
+    public void setType_piggybank(String type_piggybank) {
+        // Tu ustaw pole
     }
 }
 
