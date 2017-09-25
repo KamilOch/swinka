@@ -208,6 +208,13 @@
     color: #777F80;
     line-height: 1.4em; }
 
+   .piggybank__type_piggybank {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom:1vh;
+    color: #FF0000;
+    heihgt: 7vh; }
+
 .piggybank-aside {
   width: 30vw;
   height: 30vh; }
