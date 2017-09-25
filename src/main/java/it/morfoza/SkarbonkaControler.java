@@ -68,6 +68,7 @@ public class SkarbonkaControler {
 
     @RequestMapping("/add_piggybank")
     public String addPage(
+            @RequestParam(value = "type_piggybank", required = false) String type_piggybank,
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,

@@ -23,6 +23,7 @@
 
     <tr>
         <th>Nazwa</th>
+        <th>Typ</th>
         <th>Cel</th>
         <th>Zebrano</th>
         <th>%</th>
@@ -32,6 +33,7 @@
     </tr>
     <tr th:each="piggyBank:${piggyBanks}">
         <td th:text="${piggyBank.name}"></td>
+        <td th:text="${piggyBank.type_piggybank}"></td>
         <td th:text="${piggyBank.target}"></td>
         <td th:text="${piggyBank.current}"></td>
         <td th:text="${piggyBank.percentRaised}"></td>

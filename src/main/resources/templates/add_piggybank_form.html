@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Formularz</title>
     <link rel="stylesheet" href="resources/normalize.css" />
@@ -8,6 +8,14 @@
 <body>
 <h1 class="header__1 actions__title">Formularz</h1>
 <form action="/add_piggybank">
+
+    <p><h2>Podaj typ skarbonki</h2></p>
+        <select class="input_type_piggybank" name="type_piggybank">
+             <option>charytatywna</option>
+            <option>przekręt</option>
+            <option>pranie pieniędzy</option>
+        </select>
+
 
    <p><h2>Podaj nazwe</h2></p>
         <input class="input_name" name="name"></input>

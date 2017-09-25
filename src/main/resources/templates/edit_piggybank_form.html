@@ -10,6 +10,14 @@
 <form action="/edit_piggybank">
 
     <input type="hidden" name="id" th:value="${piggyBank.id}" />
+
+    <p><h2>Podaj typ skarbonki</h2></p>
+    <select class="input_type_piggybank" name="type_piggybank">
+        <option>charytatywna</option>
+        <option>przekręt</option>
+        <option>pranie pieniędzy</option>
+    </select>
+
    <p><h2>Podaj nazwę</h2></p>
         <input class="input_name" name="name" th:value="${piggyBank.name}"></input>
 
