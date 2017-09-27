@@ -27,8 +27,14 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/")
-    public String home() {
-        return "redirect:/all";
+    public String home(
+            @RequestParam(value = "type", required = false) String type
+
+    ) {
+        if ("SubmitButton" = "wszystkie")return "redirect:/all";
+        if "charytatywna" return "redirect:/charytatywna";
+        if "przekret" return "redirect:/przekręt";
+        if "pranie_pieniedzy" return "tedirect/pranie_pieniedzy";
     }
 
     @RequestMapping("/registration_form")
