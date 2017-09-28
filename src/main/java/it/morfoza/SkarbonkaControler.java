@@ -38,7 +38,13 @@ public class SkarbonkaControler {
 
 
     @RequestMapping("/all")
-    public String all(Model model, @RequestParam (value="type") String type) {
+    public String all(Model model, @RequestParam (value="type", required = false) String type) {
+
+    if (type == null) {
+        type = "";
+    }
+
+
     List<PiggyBank> piggyBanks = piggyService.getAll();
     model.addAttribute("piggyBanks", piggyBanks );
 
