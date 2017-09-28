@@ -28,13 +28,15 @@ public class SkarbonkaControler {
 
     @RequestMapping("/")
     public String home(
-            @RequestParam(value = "type", required = false) String type
+            @RequestParam(value = "type", required = false) String type,
+            @RequestParam(value = "type_piggybank", required = false) String type_piggybank
 
     ) {
-        if ("SubmitButton" = "wszystkie")return "redirect:/all";
-        if "charytatywna" return "redirect:/charytatywna";
-        if "przekret" return "redirect:/przekręt";
-        if "pranie_pieniedzy" return "tedirect/pranie_pieniedzy";
+        if ("type".equals("charytatywna")) return "piggybank.type_piggybank/charytatywna";
+        else if ("type".equals("przekret")) return "redirect:/przekręt";
+        else if ("type".equals("pranie_pieniedzy")) return "tedirect/pranie_pieniedzy";
+        else {
+        } return "redirect:/all";
     }
 
     @RequestMapping("/registration_form")
