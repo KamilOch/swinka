@@ -27,16 +27,8 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/")
-    public String home(
-            @RequestParam(value = "type", required = false) String type,
-            @RequestParam(value = "type_piggybank", required = false) String type_piggybank
-
-    ) {
-        if ("type".equals("charytatywna")) return "piggybank.type_piggybank/charytatywna";
-        else if ("type".equals("przekret")) return "redirect:/przekręt";
-        else if ("type".equals("pranie_pieniedzy")) return "tedirect/pranie_pieniedzy";
-        else {
-        } return "redirect:/all";
+    public String home() {
+            return "redirect:/all";
     }
 
     @RequestMapping("/registration_form")
@@ -44,12 +36,18 @@ public class SkarbonkaControler {
         return "registration_form";
     }
 
-
+    //@RequestParam(value = "type", required = false) String type
+    //@RequestParam(value = "type_piggybank", required = false) String type_piggybank
     @RequestMapping("/all")
     public String all(Model model) {
-        List<PiggyBank> piggyBanks = piggyService.getAll();
-        model.addAttribute("piggyBanks", piggyBanks);
-        return "piggybanks";
+    List<PiggyBank> piggyBanks = piggyService.getAll();
+    model.addAttribute("piggyBanks", piggyBanks);
+    //return "piggybanks";
+
+        if (type_piggybank.equals("charytatywna")) return "charytatywna";
+        else if (type.equals("przekret")) return "redirect:/przekręt";
+        else if (type.equals("pranie_pieniedzy")) return "tedirect/pranie_pieniedzy";
+        else return "piggybanks";
     }
 
     @RequestMapping("/log_in_form")
