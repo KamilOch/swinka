@@ -38,22 +38,24 @@ public class SkarbonkaControler {
 
 
     @RequestMapping("/all")
-    public String all(Model model, @RequestParam (value="type", required = false) String type) {
+    public String all(Model model, @RequestParam (value="type_piggybank", required = false) String type_piggybank) {
 
-    if (type == null) {
-        type = "";
+    if (type_piggybank == null) {
+        type_piggybank = "";
     }
 
 
     List<PiggyBank> piggyBanks = piggyService.getAll();
     model.addAttribute("piggyBanks", piggyBanks );
+    model.addAttribute ("type_piggybank", type_piggybank);
 
     //return "piggybanks";
 
-        if (type.equals("charytatywna")) System.out.println("tralalal charytatywna");
+        if (type_piggybank.equals("charytatywna"))  return "charytatywna";
+            //System.out.println("tralalal charytatywna");
        // else if (type.equals("przekret")) System.out.println("tralalal przekret");
         //else if (type.equals("pranie_pieniedzy")) System.out.println("tralalal pranie pieniedzy");
-        return "piggybanks";
+         else return "piggybanks";
     }
 
     @RequestMapping("/log_in_form")
