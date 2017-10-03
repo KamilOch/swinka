@@ -13,6 +13,7 @@ import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -28,38 +29,54 @@ public class SkarbonkaControler {
 
     @RequestMapping("/")
     public String home() {
-            return "redirect:/all";
+        return "redirect:/all";
     }
 
     @RequestMapping("/registration_form")
-    public String registration_form(){
+    public String registration_form() {
         return "registration_form";
     }
 
 
     @RequestMapping("/all")
-    public String all(Model model, @RequestParam (value="type_piggybank", required = false) String type_piggybank) {
+    public String all(Model model, @RequestParam(value = "type_piggybank", required = false) String type_piggybank) {
 
-    if (type_piggybank == null) {
-        type_piggybank = "";
-    }
+        if (type_piggybank == null) {
+            type_piggybank = "";
+        }
+
+        model.addAttribute("type_piggybank", type_piggybank);
+
+        List<PiggyBank> piggyBanks = piggyService.getAll();
+        List<PiggyBank> filtered = new ArrayList<>();
+
+        // foreach po swinkach
+        // dodajesz do filered tylko te ktore pasuj do parmetru
+        for (int i = 0; i < piggyBanks.size(); i++ ) {
+            System.out.println(i);
+             PiggyBank piggyBank = piggyBanks.get(i);
+
+            if (type_piggybank.equals(piggyBank.getType_piggybank())) {
+                filtered.add(piggyBank);
+            }
+        }
 
 
-    List<PiggyBank> piggyBanks = piggyService.getAll();
-    model.addAttribute("piggyBanks", piggyBanks );
-    model.addAttribute ("type_piggybank", type_piggybank);
+//        filtered.add(piggyBanks.get(0));
 
-    //return "piggybanks";
-
-        if (type_piggybank.equals("charytatywna"))  return "charytatywna";
-            //System.out.println("tralalal charytatywna");
-       // else if (type.equals("przekret")) System.out.println("tralalal przekret");
+        //if (type_piggybank.equals("charytatywna")) return "charytatywna";
+        //System.out.println("tralalal charytatywna");
+        // else if (type.equals("przekret")) System.out.println("tralalal przekret");
         //else if (type.equals("pranie_pieniedzy")) System.out.println("tralalal pranie pieniedzy");
-         else return "piggybanks";
+
+        model.addAttribute("piggyBanks", filtered);
+        return "piggybanks";
     }
 
     @RequestMapping("/log_in_form")
-    public String log_in_form(){return "log_in_form";}
+    public String log_in_form() {
+        return "log_in_form";
+    }
 
     @RequestMapping("/add_piggybank_form")
     public String addForm() {
@@ -86,9 +103,9 @@ public class SkarbonkaControler {
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,
-            @RequestParam(value = "long_description",required = true)String long_description,
-            @RequestParam(value = "url_image",required = false)String url_image
-                                                                 ) {
+            @RequestParam(value = "long_description", required = true) String long_description,
+            @RequestParam(value = "url_image", required = false) String url_image
+    ) {
 
 
         if (isStringEmpty(name)) {
@@ -96,7 +113,7 @@ public class SkarbonkaControler {
             String error = encodeUrl(url);
             return "redirect:/?error= " + error;
         }
-        PiggyBank pig = new PiggyBank(name,  LocalDateTime.now().toString(), new Money(target), new Money(0),description,long_description,url_image,type_piggybank);
+        PiggyBank pig = new PiggyBank(name, LocalDateTime.now().toString(), new Money(target), new Money(0), description, long_description, url_image, type_piggybank);
 
         piggyService.add(pig);
 
@@ -110,9 +127,9 @@ public class SkarbonkaControler {
             @RequestParam(value = "name", required = false) String name,
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,
-            @RequestParam(value = "long_description",required = true)String long_description,
-            @RequestParam(value = "url_image",required = false)String url_image,
-            @RequestParam(value = "type_piggybank",required = true) String type_piggybank
+            @RequestParam(value = "long_description", required = true) String long_description,
+            @RequestParam(value = "url_image", required = false) String url_image,
+            @RequestParam(value = "type_piggybank", required = true) String type_piggybank
     ) {
 
         if (isStringEmpty(name)) {
@@ -148,7 +165,7 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/payin")
-    public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true)  long amount) {
+    public String all(@RequestParam(value = "id", required = true) long id, @RequestParam(value = "amount", required = true) long amount) {
         piggyService.pay(id, new Money(amount), "");
         return "redirect:/all";
     }
@@ -195,7 +212,7 @@ public class SkarbonkaControler {
     }
 
 
-    private static String encodeUrl(String url)  {
+    private static String encodeUrl(String url) {
         try {
             return URLEncoder.encode(url, "UTF-8");
         } catch (UnsupportedEncodingException e) {
