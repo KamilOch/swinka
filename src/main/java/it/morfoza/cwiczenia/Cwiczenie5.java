@@ -1,4 +1,6 @@
 package it.morfoza.cwiczenia;
+
+
 //Operatory matematyczne i logiczne
 public class Cwiczenie5 {
     public static void main(String[] args) {
@@ -35,6 +37,29 @@ public class Cwiczenie5 {
 
         System.out.println(p);
         System.out.println(r);
+
+        int s = 5;
+        int t = 3;
+        boolean prawda = s>t;
+        boolean falsz = s<t;
+        boolean porownanie = s==t;
+        boolean koniunkcja = (s>t)&&(s!=t);
+
+        System.out.println(prawda);
+        System.out.println(falsz);
+        System.out.println(porownanie);
+        System.out.println(koniunkcja);
+
+        String ja = "Sławek";
+        String ty = "Sławek";
+
+        boolean porownanie1 = ja==ty; // to miało nie wyjsc a wyszlo!!!!
+        boolean porownanie2 = ja.equals(ty); // to miało wyjsc!!!!!!
+        System.out.println(porownanie1);
+        System.out.println(porownanie2);
+
+
+
 
     }
 }
