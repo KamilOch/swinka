@@ -62,6 +62,7 @@ public class SkarbonkaControler {
         }
 
 
+
 //        filtered.add(piggyBanks.get(0));
 
         //if (type_piggybank.equals("charytatywna")) return "charytatywna";
