@@ -1,6 +1,6 @@
 package it.morfoza.cwiczenia;
 
-import javax.swing.text.Style;
+
 
 // Zmienne praca domowa
 public class Cwiczenie4_1 {
