@@ -16,9 +16,9 @@ public class Cwiczenie12_2 {
        for (int i=0; i<n; i++ )
             tablica[i] =i+1;
 
-        int licznik =0;
+       int licznik =0;
        while ( licznik < n) {
-           System.out.println("Kolejna komórka to: " + licznik);
+           System.out.println("Kolejna komórka to: " + tablica[licznik]);
            licznik++;
        }
     }
