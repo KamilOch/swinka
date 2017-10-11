@@ -10,7 +10,7 @@ public class Cwiczenie12 {
         for (int i=0; i<10; i++ )
            tablica[i] =i+1;
 
-         int zmienna = tablica[3]; // ta linia nie dziala, przynajmniej tak mi sie wydaje
+        int zmienna = tablica[3];
 
         for (int i=0; i<10; i++)
             System.out.println("Kolejna komórka to: "+ tablica[i]);
