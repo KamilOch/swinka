@@ -50,26 +50,24 @@ public class SkarbonkaControler {
         List<PiggyBank> piggyBanks = piggyService.getAll();
         List<PiggyBank> filtered = new ArrayList<>();
 
-        // foreach po swinkach
-        // dodajesz do filered tylko te ktore pasuj do parmetru
-        for (int i = 0; i < piggyBanks.size(); i++ ) {
-            System.out.println(i);
-             PiggyBank piggyBank = piggyBanks.get(i);
+        if (type_piggybank.equals("wszystkie")|| type_piggybank.equals("")) {
+            // filtered.addAll(piggyBanks);
+            filtered = piggyBanks;
+        } else {
+            // foreach po swinkach
+            // dodajesz do filered tylko te ktore pasuj do parmetru
+            for (int i = 0; i < piggyBanks.size(); i++) {
+                System.out.println(i);
+                PiggyBank piggyBank = piggyBanks.get(i);
 
-            if (type_piggybank.equals(piggyBank.getType_piggybank())) {
-                filtered.add(piggyBank);
+                if (type_piggybank.equals(piggyBank.getType_piggybank())) {
+                    filtered.add(piggyBank);
+
+
+                }
+
             }
         }
-
-
-
-//        filtered.add(piggyBanks.get(0));
-
-        //if (type_piggybank.equals("charytatywna")) return "charytatywna";
-        //System.out.println("tralalal charytatywna");
-        // else if (type.equals("przekret")) System.out.println("tralalal przekret");
-        //else if (type.equals("pranie_pieniedzy")) System.out.println("tralalal pranie pieniedzy");
-
         model.addAttribute("piggyBanks", filtered);
         return "piggybanks";
     }
