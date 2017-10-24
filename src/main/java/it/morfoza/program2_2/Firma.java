@@ -11,9 +11,9 @@ public class Firma {
 
         for(int i=0; i<pracownicy.length; i++){
             pracownicy[i]= new Pracownik();
-            pracownicy[i].imie = imiona(i);
-            pracownicy[i].nazwisko = nazwiska(i);
-            pracownicy[i].wiek = wiek(i);
+            pracownicy[i].imie = imiona[i];
+            pracownicy[i].nazwisko = nazwiska[i];
+            pracownicy[i].wiek = wiek[i];
         }
     System.out.println("Pracownicy firmy to: ");
         for(int i=0; i<pracownicy.length; i++)
