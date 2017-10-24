@@ -2,7 +2,7 @@ package it.morfoza.program2_2;
 
 
 public class Firma {
-    public static void main (String[] args) {
+    public static void main (String args[]){
         Pracownik[] pracownicy = new Pracownik[3];
 
         String[] imiona = {"Roman", "Włodek", "Przemek"};
