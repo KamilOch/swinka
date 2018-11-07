@@ -7,13 +7,13 @@ public class Punkt {
     void ustawX(int x){
         wspX=x;
     }
-    void ustawY(int y){
+    void ustawY(int y) {
         wspY=y;
     }
     int dajX(){
         return wspX;
     }
-    int dajY(){
+    int dajY() {
         return wspY;
     }
 }

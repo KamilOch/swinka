@@ -10,7 +10,7 @@ public class Punkt {
     void zwiekszY(){
         y++;
     }
-   void zmienX(int liczba){
+    void zmienX(int liczba){
         x +=liczba;
 }
     void zmienY(int liczba){
