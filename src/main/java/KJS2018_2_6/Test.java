@@ -10,6 +10,6 @@ public class Test {
         System.out.println(punkt2D2.x+" "+punkt2D2.y);
 
         Punkt3D punkt3D = new Punkt3D(1,2,3);
-        System.out.println(punkt3D.x+" "+punkt3D.y+" "+punkt3D.y);
+        System.out.println(punkt3D.x+" "+punkt3D.y+" "+punkt3D.z);
     }
 }

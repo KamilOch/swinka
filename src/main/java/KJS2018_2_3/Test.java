@@ -8,6 +8,8 @@ public class Test {
 
         punkt1.wspX = 10;
         punkt1.wspY = 20;
+        punkt1.drukowanieX();
+        punkt1.drukowanieY();
 
         punkt1.zwiekszXO1();
         punkt1.drukowanieX();
