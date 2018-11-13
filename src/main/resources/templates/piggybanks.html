@@ -60,6 +60,7 @@
                             <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł</span> (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
                         </div>
                         <div class="action-card__needed">Brakuje nam <span th:text="${piggyBank.misingAmount}"></span> zł z <span th:text="${piggyBank.target}"></span></div>
+                        <div class="action-card__needed">Brakuje nam <span th:text="${piggyBank.misingAmount}"></span> zł z <span th:text="${piggyBank.target}"></span></div><!-- Tu dodalem 2 linie wyswietlania kwoty -->
                         <div class="dropdown dropdown--full-width">
                             <form action="https://ssl.dotpay.pl" method="post">
                                 <ul class="dropdown__amounts ">

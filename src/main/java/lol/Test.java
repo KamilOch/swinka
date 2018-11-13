@@ -1,15 +1,7 @@
-package lol;
-
-
-
-
-public class Test{
-    public static void main(String[] args) {
-        String str1 = new String("Siabada1");
-        Object str2 = new String("Siabada2");
-        System.out.println(str1);
-        System.out.println(str2);
+public class Test {
+    public static void main(String args[]) {
+        double x = 2.0;
+        double y = 1.1;
+        System.out.println(x-y);
     }
 }
-
-
