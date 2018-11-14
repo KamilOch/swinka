@@ -32,7 +32,8 @@ public class DatabasePiggyRepository implements PiggyRepository {
             String long_description=rs.getString("long_description");
             String url_image=rs.getString("picture_url");
             String type_piggybank = rs.getString("type_piggybank");
-            PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description, url_image, type_piggybank);
+            String jakis_element = rs.getString("jakis_element");
+            PiggyBank piggyBank = new PiggyBank(name, "", new Money(target), new Money(current), description, long_description, url_image, type_piggybank, jakis_element);
             piggyBank.setId(id);
             return piggyBank;        }
     };

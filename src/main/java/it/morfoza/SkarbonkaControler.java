@@ -103,7 +103,8 @@ public class SkarbonkaControler {
             @RequestParam(value = "target", required = true) long target,
             @RequestParam(value = "description", required = true) String description,
             @RequestParam(value = "long_description", required = true) String long_description,
-            @RequestParam(value = "url_image", required = false) String url_image
+            @RequestParam(value = "url_image", required = false) String url_image,
+            @RequestParam(value = "jakis_element", required = true) String jakis_element
     ) {
 
 
@@ -112,7 +113,7 @@ public class SkarbonkaControler {
             String error = encodeUrl(url);
             return "redirect:/?error= " + error;
         }
-        PiggyBank pig = new PiggyBank(name, LocalDateTime.now().toString(), new Money(target), new Money(0), description, long_description, url_image, type_piggybank);
+        PiggyBank pig = new PiggyBank(name, LocalDateTime.now().toString(), new Money(target), new Money(0), description, long_description, url_image, type_piggybank, jakis_element);
 
         piggyService.add(pig);
 
@@ -128,7 +129,9 @@ public class SkarbonkaControler {
             @RequestParam(value = "description", required = true) String description,
             @RequestParam(value = "long_description", required = true) String long_description,
             @RequestParam(value = "url_image", required = false) String url_image,
-            @RequestParam(value = "type_piggybank", required = true) String type_piggybank
+            @RequestParam(value = "type_piggybank", required = true) String type_piggybank,
+            @RequestParam(value = "jakis_element", required = true) String jakis_element
+
     ) {
 
         if (isStringEmpty(name)) {

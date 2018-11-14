@@ -11,8 +11,9 @@ public class PiggyBank {
     private String long_description;
     private String url_image;
     private String type_piggybank;
+    private String jakis_element;
 
-    public PiggyBank(String name, String date, Money target, Money current, String description, String long_description,String url_image, String type_piggybank) {
+    public PiggyBank(String name, String date, Money target, Money current, String description, String long_description,String url_image, String type_piggybank, String jakis_element) {
         this.name = name;
         this.date = date;
         this.target = target;
@@ -21,6 +22,7 @@ public class PiggyBank {
         this.long_description=long_description;
         this.url_image=url_image;
         this.type_piggybank=type_piggybank;
+        this.jakis_element=jakis_element;
     }
 
     public String getName() {
@@ -40,7 +42,7 @@ public class PiggyBank {
     public String getLong_description(){ return long_description;}
     public String getUrl_image(){return  url_image; }
     public Money getTarget() {
-        return target;
+        return (target);
     }
 
     public Money getCurrent() {
