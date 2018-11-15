@@ -11,7 +11,7 @@ public class Money {
    // BigDecimal value = new BigDecimal(value.multiply(valueOf(2)));
 
     public Money(double value) {
-        this.value = new BigDecimal(2*value);
+        this.value = new BigDecimal(value);
     }
 
     public Money(BigDecimal value) {

@@ -53,6 +53,10 @@ public class PiggyBank {
         return id;
     }
 
+    public String getJakis_element() {
+        return jakis_element;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -90,6 +94,10 @@ public class PiggyBank {
     public String getType_piggybank() {
         // Tu pobierz wartosc pola
         return type_piggybank;
+    }
+
+    public void setJakis_element(String jakis_element) {
+        this.jakis_element = jakis_element;
     }
 
     public void setType_piggybank(String type_piggybank) {

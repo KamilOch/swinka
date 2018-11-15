@@ -145,6 +145,7 @@ public class SkarbonkaControler {
         piggyBank.setTarget(new Money(target));
         piggyBank.setUrl_image(url_image);
         piggyBank.setType_piggybank(type_piggybank);
+        piggyBank.setJakis_element(jakis_element);
 
         piggyService.update(piggyBank);
 

@@ -55,6 +55,7 @@
                         <div class="action-card__type_piggybank" th:text="${piggyBank.type_piggybank}"></div>
                         <div class="action-card__description" th:text="${piggyBank.description}">To jest krótki opis mający w skrócie opowiedzieć, na co zostaną wykorzystane pieniądze. Lorem ipsu</div>
                         <div class="action-card__long_description" th:text="${piggyBank.long_description}"></div>
+                        <div class="action-card__jakis_element" th:text="${piggyBank.jakis_element}"></div>
                         <div class="action-card__progress-bar progress-bar" th:attr="data-current=${piggyBank.current}, data-target=${piggyBank.target}">
                             <div class="progress-bar__progress"></div>
                             <div class="progress-bar__text"><span th:text="${piggyBank.current}"> zł</span> (<span th:text="${piggyBank.percentRaised}"></span>%)</div>
