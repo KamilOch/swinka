@@ -29,7 +29,7 @@ public class Calculator {
         this.liczba2 = liczba2;
     }
 
-    public int WynikDodawania(int liczba1,int liczba2) {
+    public int WynikDodawania() {
         return (liczba1 + liczba2);
     }
 
