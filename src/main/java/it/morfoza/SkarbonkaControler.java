@@ -210,6 +210,11 @@ public class SkarbonkaControler {
 
     }
 
+    @RequestMapping("/calculatorLiczby")
+    public String costam;
+        return "calculatorLiczby";
+
+
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");
     }
