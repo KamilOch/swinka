@@ -221,11 +221,13 @@ public class SkarbonkaControler {
     public String wynik (
 
 int liczba1,
- int liczba2
+ int liczba2,
+ Model model
     ){
         int wynik = liczba1 + liczba2;
         System.out.println(wynik);
        // new calculatorWynik(this.calculatorLiczby(this.liczba1+this.liczba2) )
+        model.addAttribute("wynik", wynik);
             return "calculatorWynik";
     };
 
