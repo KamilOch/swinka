@@ -219,16 +219,21 @@ public class SkarbonkaControler {
 
     @RequestMapping("/calculatorWynik")
     public String wynik (
-
-int liczba1,
- int liczba2,
- Model model
+        int liczba1,
+        int liczba2,
+        Model model
     ){
-        int wynik = liczba1 + liczba2;
-        System.out.println(wynik);
-       // new calculatorWynik(this.calculatorLiczby(this.liczba1+this.liczba2) )
-        model.addAttribute("wynik", wynik);
-            return "calculatorWynik";
+        int wynikDodawania = liczba1 + liczba2;
+        int wynikOdejmowania = liczba1 - liczba2;
+        int wynikMnozenia = liczba1 * liczba2;
+        int wynikDzielenia = liczba1/liczba2;
+
+        model.addAttribute("wynikDodawania", wynikDodawania);
+        model.addAttribute("wynikOdejmowania", wynikOdejmowania);
+        model.addAttribute("wynikMnozenia", wynikMnozenia);
+        model.addAttribute("wynikDzielenia", wynikDzielenia);
+
+        return "calculatorWynik";
     };
 
 
