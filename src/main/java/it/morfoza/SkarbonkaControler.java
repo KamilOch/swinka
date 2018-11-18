@@ -220,9 +220,11 @@ public class SkarbonkaControler {
     @RequestMapping("/calculatorWynik")
     public String wynik (
 
-            @RequestParam(value = "liczba1", required = true) int liczba1,
-            @RequestParam(value = "liczba2", required = true) int liczba2
+int liczba1,
+ int liczba2
     ){
+        int wynik = liczba1 + liczba2;
+        System.out.println(wynik);
        // new calculatorWynik(this.calculatorLiczby(this.liczba1+this.liczba2) )
             return "calculatorWynik";
     };
