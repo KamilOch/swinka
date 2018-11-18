@@ -1,6 +1,7 @@
 package it.morfoza;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -211,8 +212,18 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/calculatorLiczby")
-    public String costam;
+    public String calculatorLiczby;
         return "calculatorLiczby";
+
+    @RequestMapping("/calculatorWynik")
+    public String wynik (
+
+            @RequestParam(value = "liczba1", required = true) int liczba1,
+            @RequestParam(value = "liczba2", required = true) int liczba2
+    ){
+        new calculatorWynik(this.calculatorLiczby(this.liczba1+this.liczba2) )
+            return "calculatorWynik";
+    };
 
 
     private boolean isStringEmpty(String string) {
