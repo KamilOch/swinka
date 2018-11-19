@@ -234,7 +234,16 @@ public class SkarbonkaControler {
         model.addAttribute("wynikDzielenia", wynikDzielenia);
 
         return "calculatorWynik";
-    };
+    }
+
+    @RequestMapping("/processing")
+    public String startGry (
+            Model model) {
+        return "/processing"; }
+
+
+
+
 
 
     private boolean isStringEmpty(String string) {
