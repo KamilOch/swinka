@@ -158,7 +158,7 @@ var Character = function (config){
 // nowy gracz 1
 var player1 = new Character ({
 name: "Adam",
-picture: requestImage("CharacterBoy.png"),
+picture: requestImage("/resources/CharacterBoy.png"),
 xPosition: sizeX*1/8,
 yPosition: sizeY*1/3,
 //klawiatura: klawiatura1
@@ -167,7 +167,7 @@ yPosition: sizeY*1/3,
 // nowy gracz 2
 var player2 = new Character ({
 name: "Eva",
-picture: requestImage("CharacterCatGirl.png"),
+picture: requestImage("/resources/CharacterCatGirl.png"),
 xPosition: sizeX*6/8,
 yPosition: sizeY*1/3,
 //klawiatura: klawiatura2
@@ -217,13 +217,13 @@ var mousePressed = function() {
 
 // nowy bonus
 var bonus = new Character ({
-    picture: requestImage("mr-pink.png"),
+    picture: requestImage("/resources/mr-pink.png"),
     xPosition: random(20, (sizeX-140)),
     yPosition: random(20, (sizeY-140)),
     height: 40
 });
 
-var serce = requestImage("healthheart.png");
+var serce = requestImage("/resources/healthheart.png");
 
 var keyPressed = function () {
     player1.klawiatura [key.code] = true;
