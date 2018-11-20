@@ -7,6 +7,8 @@
 <body>
 
 <button id="button"> Wyswietl wynik </button>
+<br><br>
+<div id="text"></div>
 
 
 <script>
@@ -21,10 +23,13 @@
     xhr.onload = function(){
       if(this.status == 200){
       // console.log('lol')
-      console.log(this.responseText);
+      //console.log(this.responseText);
+      document.getElementById('text').innerHTML = this.responseText;
       }
-    };
-
+    }
+    xhr.onerror = function (){
+    console.log('wystapil blad');
+    }
     xhr.send();
     }
 
