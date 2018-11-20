@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Rekordy</title>
+</head>
+<body>
+
+<button id="button"> Wyswietl wynik </button>
+
+
+<script>
+
+    document.getElementById('button').addEventListener('click' , ladujWynik);
+
+    function ladujWynik(){
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET' , 'test.txt' , true );
+
+    xhr.onload = function(){
+    if(this.status == 200){}
+     // console.log('lol')
+     console.log(this.responseText);
+
+    };
+
+    xhr.send();
+    }
+
+</script>
+
+</body>
+</html>

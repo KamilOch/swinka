@@ -241,7 +241,10 @@ public class SkarbonkaControler {
             Model model) {
         return "/processing"; }
 
-
+    @RequestMapping("/rekordy")
+    public String rekordyGry (
+            Model model) {
+        return "/rekordy"; }
 
 
 
