@@ -16,13 +16,13 @@
     function ladujWynik(){
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET' , 'test.txt' , true );
+    xhr.open('GET' , '/resources/test.txt' , true );
 
     xhr.onload = function(){
-    if(this.status == 200){}
-     // console.log('lol')
-     console.log(this.responseText);
-
+      if(this.status == 200){
+      // console.log('lol')
+      console.log(this.responseText);
+      }
     };
 
     xhr.send();
