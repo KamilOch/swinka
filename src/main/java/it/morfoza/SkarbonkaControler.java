@@ -255,16 +255,30 @@ public class SkarbonkaControler {
 
     @RequestMapping("/lista")
     public String wygranyLista(
+
+            Model model,
+            @RequestParam(value = "imie", required = true) String imie,
+            @RequestParam(value = "punkty", required = true) int punkty
+
+            /*
             String imie,
             int punkty,
-            Model model) {
+            Model model
+    */
+    ) {
 
+        WygranyLista wygrany = new WygranyLista(imie, punkty);
+
+    /*
         String imieRekordzisty = imie;
         int punktyRekordzisty = punkty;
 
         model.addAttribute("imieRekordzisty", imieRekordzisty);
         model.addAttribute("punktyRekordzisty", punktyRekordzisty);
+    */
+        model.addAttribute("wygrany", wygrany);
         return "lista";
+
     }
 
     private boolean isStringEmpty(String string) {
