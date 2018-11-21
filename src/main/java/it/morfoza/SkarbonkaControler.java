@@ -239,15 +239,33 @@ public class SkarbonkaControler {
     @RequestMapping("/processing")
     public String startGry (
             Model model) {
-        return "/processing"; }
+        return "processing"; }
 
     @RequestMapping("/rekordy")
     public String rekordyGry (
             Model model) {
-        return "/rekordy"; }
+        return "rekordy";
+    }
 
+    @RequestMapping("/zwyciezca")
+    public String wygranyGry (
+        Model model) {
+        return "zwyciezca";
+    }
 
+    @RequestMapping("/lista")
+    public String wygranyLista(
+            String imie,
+            int punkty,
+            Model model) {
 
+        String imieRekordzisty = imie;
+        int punktyRekordzisty = punkty;
+
+        model.addAttribute("imieRekordzisty", imieRekordzisty);
+        model.addAttribute("punktyRekordzisty", punktyRekordzisty);
+        return "lista";
+    }
 
     private boolean isStringEmpty(String string) {
         return string == null || string.equals("");
