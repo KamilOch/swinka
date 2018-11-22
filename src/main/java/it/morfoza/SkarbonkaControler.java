@@ -269,6 +269,13 @@ public class SkarbonkaControler {
 
         WygranyLista wygrany = new WygranyLista(imie, punkty);
 
+        List<WygranyLista> lista = new ArrayList<>();
+        lista.add(wygrany);
+        for (int i = 0; i < lista.size(); i++) {
+            model.addAttribute("lista", lista.get(i));
+
+        }
+
     /*
         String imieRekordzisty = imie;
         int punktyRekordzisty = punkty;
@@ -276,7 +283,6 @@ public class SkarbonkaControler {
         model.addAttribute("imieRekordzisty", imieRekordzisty);
         model.addAttribute("punktyRekordzisty", punktyRekordzisty);
     */
-        model.addAttribute("wygrany", wygrany);
         return "lista";
 
     }
