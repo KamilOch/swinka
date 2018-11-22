@@ -1,15 +1,16 @@
 package it.morfoza;
 
-public class WygranyLista {
+public class Wygrany {
 
     private String imie;
     private int punkty;
 
-    public WygranyLista (String imie, int punkty){
+    /*
+    public Wygrany (String imie, int punkty){
         this.imie = imie;
         this.punkty = punkty;
     }
-
+*/
     public String getImie() {
         return imie;
     }

@@ -5,9 +5,25 @@
     <title>Lista rekordzistow</title>
 </head>
 <body>
-<h1>REKORDZISCI</h1>
 
-<div class="lista" th:text="${lista.get(i)}"></div>
+
+<table>
+    <thead>
+    <tr>
+        <th> Imie </th>
+        <th> Punkty </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${wygrani.empty}">
+        <td colspan="2"> Brak wygranych </td>
+    </tr>
+    <tr th:each="wygrany : ${wygrani}">
+        <td><span th:text="${wygrany.imie}"> Imie </span></td>
+        <td><span th:text="${wygrany.punkty}"> Punkty </span></td>
+    </tr>
+    </tbody>
+</table>
 
 
 </body>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -248,43 +250,33 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/zwyciezca")
-    public String wygranyGry (
-        Model model) {
-        return "zwyciezca";
+    public String wygranyGry (Model model) {
+
+        ListaWygranych zwyciezcyForm = new ListaWygranych();
+
+            for (int i = 1; i <= 3; i++) {
+                zwyciezcyForm.dodajWygranego (new Wygrany());
+            }
+
+            model.addAttribute("form", zwyciezcyForm);
+            return "wygrani/zwyciezcaZwyciezcyForm";
+
+
     }
 
     @RequestMapping("/lista")
-    public String wygranyLista(
+    public String pokazWszystkie(Model model) {
+        model.addAttribute("wygrani", wygranyService.findAll());
+        return "wygrani/listaWygrani";
 
-            Model model,
-            @RequestParam(value = "imie", required = true) String imie,
-            @RequestParam(value = "punkty", required = true) int punkty
+    }
 
-            /*
-            String imie,
-            int punkty,
-            Model model
-    */
-    ) {
+    @PostMapping("/save")
+    public String saveWygrany(@ModelAttribute ListaWygranych form, Model model) {
+        wygranyService.saveAll(form.getWygrani());
 
-        WygranyLista wygrany = new WygranyLista(imie, punkty);
-
-        List<WygranyLista> lista = new ArrayList<>();
-        lista.add(wygrany);
-        for (int i = 0; i < lista.size(); i++) {
-            model.addAttribute("lista", lista.get(i));
-
-        }
-
-    /*
-        String imieRekordzisty = imie;
-        int punktyRekordzisty = punkty;
-
-        model.addAttribute("imieRekordzisty", imieRekordzisty);
-        model.addAttribute("punktyRekordzisty", punktyRekordzisty);
-    */
-        return "lista";
-
+        model.addAttribute("books", wygranyService.findAll());
+        return "redirect:/books/all";
     }
 
     private boolean isStringEmpty(String string) {
