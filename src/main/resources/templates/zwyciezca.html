@@ -6,26 +6,16 @@
 </head>
 <body>
 
-<form action="#" th:action="@{/wygrani/save}" th:object="${form}"
-      method="post">
-    <fieldset>
-        <input type="submit" id="submitButton" th:value="Save">
-        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
-        <table>
-            <thead>
-            <tr>
-                <th> Title</th>
-                <th> Author</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="wygrany, itemStat : *{wygrani}">
-                <td><input th:field="*{wygrani[__${itemStat.index}__].imie}" /></td>
-                <td><input th:field="*{wygrani[__${itemStat.index}__].punkty}" /></td>
-            </tr>
-            </tbody>
-        </table>
-    </fieldset>
+<form action="/zwyciezcy">
+
+    <h1>Wygrales</h1>
+
+    <p>Podaj imie</p>
+    <input name="imie"/>
+    <p>Podaj ilosc punktow</p>
+    <input name="punkty"/><br/>
+
+    <input type="submit" value="Submit"/>
 </form>
 
 

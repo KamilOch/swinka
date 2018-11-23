@@ -252,24 +252,42 @@ public class SkarbonkaControler {
     }
 
     @RequestMapping("/zwyciezca")
-    public String wygranyGry (Model model) {
+    public String wygranyGry (
+            //Model model,
+           // @RequestParam(value = "imie", required = true) String imie,
+           // @RequestParam(value = "punkty", required = true) int punkty
+    ) {
+        //PiggyBank pig = new PiggyBank(name, LocalDateTime.now().toString(), new Money(target), new Money(0), description, long_description, url_image, type_piggybank, jakis_element);
 
+        //Wygrany wygrany = new Wygrany(imie,punkty);
+        //piggyService.add(pig);
+       // pokazWszystkie.add(wygrany);
         //ListaWygranych zwyciezcyForm = new ListaWygranych();
+        //model.addAttribute("wygrani", pokazWszystkie);
 
-        model.addAttribute("wygrani", pokazWszystkie);
-        return "wygrani/zwyciezcaZwyciezcyForm";
-            }
+        return "zwyciezca";
+    }
 
+    @RequestMapping("/zwyciezcy")
+    public String wygraniGry (
+            //Model model,
+            @RequestParam(value = "imie", required = true) String imie,
+            @RequestParam(value = "punkty", required = true) int punkty
+    ) {
 
+        Wygrany wygrany = new Wygrany(imie,punkty);
 
+        pokazWszystkie.add(wygrany);
 
-
-
+        return "redirect:/zwyciezca";
+    }
 
     @RequestMapping("/lista")
     public String pokazWszystkie(Model model) {
+
+
         model.addAttribute("wygrani", pokazWszystkie);
-        return "wygrani/listaWygrani";
+        return "lista";
 
     }
 
@@ -277,7 +295,7 @@ public class SkarbonkaControler {
     public String saveWygrany(@ModelAttribute ListaWygranych form, Model model) {
         pokazWszystkie.addAll(form.getWygrani());
 
-        model.addAttribute("books", pokazWszystkie.addAll());
+      //  model.addAttribute("books", pokazWszystkie.addAll());
         return "redirect:/books/all";
     }
 
