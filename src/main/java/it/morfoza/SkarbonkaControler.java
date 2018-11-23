@@ -25,6 +25,8 @@ public class SkarbonkaControler {
 
     private PiggyService piggyService;
 
+    private List<Wygrany> pokazWszystkie = new ArrayList<>();
+
     @Autowired
     public SkarbonkaControler(PiggyService piggyService) {
         this.piggyService = piggyService;
@@ -252,30 +254,30 @@ public class SkarbonkaControler {
     @RequestMapping("/zwyciezca")
     public String wygranyGry (Model model) {
 
-        ListaWygranych zwyciezcyForm = new ListaWygranych();
+        //ListaWygranych zwyciezcyForm = new ListaWygranych();
 
-            for (int i = 1; i <= 3; i++) {
-                zwyciezcyForm.dodajWygranego (new Wygrany());
+        model.addAttribute("wygrani", pokazWszystkie);
+        return "wygrani/zwyciezcaZwyciezcyForm";
             }
 
-            model.addAttribute("form", zwyciezcyForm);
-            return "wygrani/zwyciezcaZwyciezcyForm";
 
 
-    }
+
+
+
 
     @RequestMapping("/lista")
     public String pokazWszystkie(Model model) {
-        model.addAttribute("wygrani", wygranyService.findAll());
+        model.addAttribute("wygrani", pokazWszystkie);
         return "wygrani/listaWygrani";
 
     }
 
     @PostMapping("/save")
     public String saveWygrany(@ModelAttribute ListaWygranych form, Model model) {
-        wygranyService.saveAll(form.getWygrani());
+        pokazWszystkie.addAll(form.getWygrani());
 
-        model.addAttribute("books", wygranyService.findAll());
+        model.addAttribute("books", pokazWszystkie.addAll());
         return "redirect:/books/all";
     }
 
